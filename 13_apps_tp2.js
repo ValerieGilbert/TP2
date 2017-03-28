@@ -58,10 +58,9 @@ if (err) return console.log(err)
 // Modifier un nom/adresse dans le tableau
 app.post('/modifier/:id', (req, res) => {
   var id = req.params.id;
-  console.log(id);
   db.collection('adresse')
-  .update({"_id": ObjectID(req.params.id)}, 
-    {nom : req.body.nom,
+  .save({"_id": ObjectID(req.params.id), 
+    nom : req.body.nom,
     prenom : req.body.prenom,
     telephone : req.body.telephone,
     ville : req.body.ville,
