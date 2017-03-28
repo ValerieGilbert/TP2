@@ -34,6 +34,7 @@ app.get('/formulaire',  (req, res) => {
    res.sendFile(__dirname + "/public/html/forme.htm")
 })
 
+// Ajout de noms et d'adresses dans le tableau
 app.post('/adresse',  (req, res) => {
   db.collection('adresse').save(req.body, (err, result) => {
       if (err) return console.log(err)
@@ -42,6 +43,7 @@ app.post('/adresse',  (req, res) => {
     })
 })
 
+// Detruire un nom/adresse dans le tableau
 app.post('/detruire/:id', (req, res) => {
  var id = req.params.id
  console.log(id)
@@ -53,6 +55,7 @@ if (err) return console.log(err)
  })
 })
 
+// Modifier un nom/adresse dans le tableau
 app.post('/modifier/:id', (req, res) => {
   var id = req.params.id;
   console.log(id);
