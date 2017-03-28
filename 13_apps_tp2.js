@@ -53,7 +53,6 @@ if (err) return console.log(err)
  })
 })
 
-
 app.post('/modifier/:id', (req, res) => {
   var id = req.params.id;
   console.log(id);
@@ -70,3 +69,6 @@ if (err) return console.log(err)
  res.redirect('/')  // redirige vers la route qui affiche la collection
  })
 })
+
+
+//app.get(/:colonne(nom|telephone|id)-:ordre(asc|desc))

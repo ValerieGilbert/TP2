@@ -15,6 +15,16 @@ table {
 tr, td, th {
 	border: 1px solid Silver;
 }
+
+.envoi1 {
+	height: 20px;
+	width: 20px;
+	background-image: url("../img/ajout.png");
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	border: none;
+}
+
 .envoi {
 	height: 20px;
 	width: 20px;
