@@ -22,13 +22,13 @@
 
       <tr class="adresse">
         <% for(var i=0; i<adresse.length; i++) {%>
-        <td class="client"><input type="text" placeholder="<%= adresse[i].nom %>" name="nom"></td>
-        <td class="client"><input type="text" placeholder="<%= adresse[i].prenom %>" name="prenom"></td> 
-        <td class="client"><input type="text" placeholder="<%= adresse[i].telephone %>" name="telephone"></td>
-        <td class="client"><input type="text" placeholder="<%= adresse[i]._id %>" name="telephone"></td>
-        <td>
-            <form action="/modifier/<%= adresse[i]._id %>" method="POST">
-              <button class="envoi"></button></td>
+        <form action="/modifier/<%= adresse[i]._id %>" method="POST">
+          <td class="client"><input type="text" placeholder="<%= adresse[i].nom %>" name="nom"></td>
+          <td class="client"><input type="text" placeholder="<%= adresse[i].prenom %>" name="prenom"></td> 
+          <td class="client"><input type="text" placeholder="<%= adresse[i].telephone %>" name="telephone"></td>
+          <td class="client"><input type="text" placeholder="<%= adresse[i]._id %>" name="telephone"></td>
+          <td>
+                <button class="envoi"></button></td>
             </form>
         <td>
             <form action="/detruire/<%= adresse[i]._id %>" method="POST">

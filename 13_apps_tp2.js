@@ -4,9 +4,11 @@ const MongoClient = require('mongodb').MongoClient
 const app = express();
 app.set('view engine', 'ejs'); // générateur de template «ejs»
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json());
 app.use(express.static('public'))  // pour utiliser le dossier public
 const ObjectID = require('mongodb').ObjectID;
 var db // variable qui contiendra le lien sur la BD
+
 
 MongoClient.connect('mongodb://127.0.0.1:27017/carnet_adresse', (err, database) => {
   if (err) return console.log(err)
@@ -58,14 +60,18 @@ if (err) return console.log(err)
 // Modifier un nom/adresse dans le tableau
 app.post('/modifier/:id', (req, res) => {
   var id = req.params.id;
-  db.collection('adresse')
-  .save({"_id": ObjectID(req.params.id), 
+  console.log(JSON.stringify(req.body));
+
+  var data = {"_id": ObjectID(req.params.id), 
     nom : req.body.nom,
     prenom : req.body.prenom,
     telephone : req.body.telephone,
     ville : req.body.ville,
-    codepostal : req.body.codepostal}, 
-    (err, resultat) => {
+    codepostal : req.body.codepostal};
+
+ console.log(data);
+  db.collection('adresse')
+  .save(data, (err, resultat) => {
 
 if (err) return console.log(err)
  res.redirect('/')  // redirige vers la route qui affiche la collection
