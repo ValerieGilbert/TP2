@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Application</title>
+  
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+</head>
+<body>
+    <h1>TP2 - Node.js, Express et MongoDB</h1>
+    <table>
+      <tr>
+        <form action="/adresse" method="POST">
+          <th><input type="text" placeholder="Prénom" name="nom"></th> 
+          <th><input type="text" placeholder="Nom" name="prenom"></th> 
+          <th><input type="text" placeholder="Téléphone" name="telephone"></th>
+          <th><button class="envoi" type="submit"></button></th>
+        </form>
+      </tr>
+
+      <tr class="adresse">
+        <% for(var i=0; i<adresse.length; i++) {%>
+        <td class="client"><input type="text" placeholder="<%= adresse[i].nom %>" name="nom"></td>
+        <td class="client"><input type="text" placeholder="<%= adresse[i].prenom %>" name="prenom"></td> 
+        <td class="client"><input type="text" placeholder="<%= adresse[i].telephone %>" name="telephone"></td>
+        <td>
+            <form action="/modifier/<%= adresse[i]._id %>" method="POST">
+              <button class="envoi" type="submit"></button></td>
+            </form>
+        <td>
+            <form action="/detruire/<%= adresse[i]._id %>" method="POST">
+              <button class="delete"></button>
+            </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  
+  <script type="text/javascript" src="modifier_adresse.js"></script>
+
+</body>
+</html>
